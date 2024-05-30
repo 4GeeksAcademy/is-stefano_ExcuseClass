@@ -5,42 +5,34 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function() {
-  //write your code here
-  let cohorte = "Spain-72";
-  let age = 26;
+window.onload = () => {
+  document.querySelector("#excuse").innerHTML = generador();
+};
 
-  let person1 = {
-    name: "Joe",
-    age: 35,
-    lastname: "Doe",
-    sports: ["Futbol", "Running", "Atletismo"]
-  };
-  let person2 = {
-    name: "Jane",
-    age: 27,
-    lastname: "Castillo",
-    sports: ["Tenis", "baloncesto", "Volley"]
-  };
-  let person3 = {
-    name: "Jimmy",
-    age: 10,
-    lastname: "Martinez",
-    sports: ["Rugby", "Beisball", "Natación"]
-  };
+let generador = () => {
+  let who = ["The dog", "My grandma", "The mailman", "My bird"];
+  let action = ["ate", "peed", "crushed", "broke"];
+  let what = ["my homework", "my phone", "the car"];
+  let when = [
+    "before the class",
+    "when I was sleeping",
+    "while I was exercising",
+    "during my lunch",
+    "while I was praying"
+  ];
 
-  let family = [person1, person2, person3];
-  let personas = "";
-  let tag = document.querySelector("#persons");
-  family.map((item, index) => {
-    personas +=
-      "<li class='list-group-item'>" +
-      item.name +
-      " " +
-      item.lastname +
-      "</li>";
-  });
+  let whoindex = math.floor(math.random() * who.length);
+  let actionindex = math.floor(math.random() * action.length);
+  let whatindex = math.floor(math.random() * what.length);
+  let whenindex = math.floor(math.random() * when.length);
 
-  tag.innerHTML = personas;
-  console.log(tag.innerHTML);
+  return (
+    who[whoindex] +
+    " " +
+    action[actionindex] +
+    " " +
+    what[whatindex] +
+    " " +
+    when[whenindex]
+  );
 };
